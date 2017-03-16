@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REDIS=/home/zhizi/fe/softwares/redis-3.2.8
+REDIS=/home/irice/fe/softwares/redis-3.2.8
 
 option=$1
 

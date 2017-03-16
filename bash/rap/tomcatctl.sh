@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOMCAT=/home/zhizi/fe/softwares/apache-tomcat-8.5.12
+TOMCAT=/home/irice/fe/softwares/apache-tomcat-8.5.12
 option=$1
 case "$option" in
     "stop"  ) 

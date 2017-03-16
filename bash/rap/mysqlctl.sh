@@ -1,7 +1,7 @@
 #!/bin/bash
 # for mysql-5.7.17
 
-MYSQL=/home/zhizi/fe/softwares/mysql-5.7.17-linux-glibc2.5-x86_64
+MYSQL=/home/irice/fe/softwares/mysql-5.7.17-linux-glibc2.5-x86_64
 option=$1
 
 function stop_server {

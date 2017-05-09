@@ -1,0 +1,36 @@
+#!/usr/bin/env /bin/bash
+APISERVER=http://172.55.6.109:7777
+PORT=21000
+BIN=./node_modules/.bin
+option=$1
+
+function stop_server {
+    pid=`netstat -lpn 2>/dev/null | awk '/^tcp/{printf "%s %s\n",$4,$7}' | grep $PORT | awk '{print $2}' | awk -F'/' '{print $1}'`
+
+    if [[ "$pid" -ne "" ]]; then
+        kill $pid
+    fi
+}
+
+function start_server {
+    npm run check-env &&
+    nohup $BIN/webpack-dev-server --config webpack.config.dev.js \
+        --apiserver $APISERVER \
+        --port $PORT &
+}
+
+case "$option" in
+    "stop"  ) 
+    stop_server
+    exit 0
+    ;;
+
+    *       ) 
+    stop_server
+    echo "staring..."
+    sleep 3
+    start_server
+    exit 0
+    ;;
+esac
+
